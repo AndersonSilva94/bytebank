@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nova-transferencia',
@@ -12,7 +13,9 @@ export class NovaTransferenciaComponent implements OnInit {
   valor: number;
   destino: number;
 
-  constructor() {}
+  constructor(
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {}
 
@@ -23,6 +26,7 @@ export class NovaTransferenciaComponent implements OnInit {
       destino: this.destino
     })
     this.limparCampos();
+    this.router.navigateByUrl('extrato');
   }
 
   limparCampos() {
